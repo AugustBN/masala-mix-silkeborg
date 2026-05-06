@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #d94f04;
+  --color-primary-hover: #b84203;
+  --color-secondary: #1b5e20;
+}
+
+:root {
+  --primary: #d94f04;
+  --primary-hover: #b84203;
+  --secondary: #1b5e20;
+  --text-dark: #2c2c2c;
+  --text-muted: #555555;
+  --white: #ffffff;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1920&q=80');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.navbar {
+  /* Removed z-index override to allow modals to appear on top */
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1),
+              inset 2px 2px 1px 0 rgba(255, 255, 255, 0.6),
+              inset -1px -1px 1px 1px rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  filter: url(#glass-distortion);
+  opacity: 0.6;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.liquid-glass h1, .liquid-glass h2, .liquid-glass h3, .liquid-glass h4, .liquid-glass p, .liquid-glass a:not(.btn-primary) {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.8);
+}
+
+.content-wrapper {
+  position: relative;
+  background: rgba(253, 251, 247, 0.65) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
+}
+
+.dashed-gradient-border {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3clinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3e%3cstop offset='0%25' style='stop-color:%23d94f04;stop-opacity:1' /%3e%3cstop offset='100%25' style='stop-color:%231b5e20;stop-opacity:1' /%3e%3c/linearGradient%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='url(%23grad)' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 32px;
+}
